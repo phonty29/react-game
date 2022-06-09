@@ -1,10 +1,10 @@
-const playerNames = ['Бека', 'Шерхан', 'Рафик', 'Адиар', 'Азамат Сагындыков', 'Азамат Аскаров', 'Женя', 'Данил', 'Маха', 'Нурик', 'Тимур', 'Вова Хван', 'Вова Бондарев'];
+const playerNames = ['бека', 'шерхан', 'рафик', 'адиар', 'азамат сагындыков', 'азамат аскаров', 'женя', 'данил', 'маха', 'нурик', 'тимур', 'вова хван', 'вова бондарев'];
 
 export const checkInput = (inputName) => {
 
 	for (let i = 0; i < playerNames.length; i++) {
 
-		if (playerNames[i] == inputName) {
+		if (playerNames[i] == inputName.trim().toLowerCase()) {
 			return true;
 		}
 	}
