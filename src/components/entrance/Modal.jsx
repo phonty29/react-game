@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
-import {ModalContext} from '../../context/ModalContext';
+import {GameContext} from '../../context/GameContext';
 import {checkInput} from '../../database/data';
 
 const Modal = () => {
-	const [name, setName] = useState('');
+	const {name, setName} = useContext(GameContext);
 	const navigate = useNavigate();
 
 	const submitEventHandler = (inputName) => {
 		let inputSucceed = checkInput(inputName);
-		if (inputSucceed) navigate('/goodInput');
-		else setName('Bad input');
+		if (inputSucceed) navigate('/gameStarted');
+		else setName('');
 	};		
 
 	return (
-		<ModalContext.Provider value={{name, setName}}>
+		<div>
 			<ModalDisplay/>
 			<button className="btn btn-dark mt-2" onClick={() => {submitEventHandler(name)}}>Submit</button>
-		</ModalContext.Provider>
+		</div>
 	);
 }
 

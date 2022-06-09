@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {ModalContext} from '../../context/ModalContext';
+import {GameContext} from '../../context/GameContext';
 
 const ModalDisplay = () => {
-	const {name, setName} = useContext(ModalContext);
+	const {name, setName} = useContext(GameContext);
 
 	return (
 		<div>
