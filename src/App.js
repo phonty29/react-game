@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import Entrance from './components/entrance/Entrance';
+import React from 'react';
+import Game from './components/entrance/Game';
 import {GameContext} from './context/GameContext';
 import './bootstrap/css/bootstrap.css';
 
 const App = () => {
-  const [name, setName] = useState('');
   
   return (
-    <GameContext.Provider value={{name, setName}}>
+    <GameContext.Provider value={{}}>
       <div className="container">
-        <Entrance/>
+        <Game/>
       </div>
     </GameContext.Provider>
   );

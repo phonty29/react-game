@@ -1,17 +1,24 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
-import {GameContext} from '../../context/GameContext';
+import {NameContext} from '../../context/NameContext';
 import {checkInput} from '../../database/data';
 
 const Modal = () => {
-	const {name, setName} = useContext(GameContext);
+	const {name, setName} = useContext(NameContext);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		setName('');
+		sessionStorage.removeItem('name');
+	}, []);
 
 	const submitEventHandler = (inputName) => {
 		let inputSucceed = checkInput(inputName);
-		if (inputSucceed) navigate('/gameStarted');
-		else setName('');
+		if (inputSucceed) {
+			sessionStorage.setItem('name', name);
+			navigate('/gameStarted');
+		} 
 	};		
 
 	return (
