@@ -1,25 +1,22 @@
 import React, {useContext, useEffect} from 'react';
-import {GameContext} from '../../context/GameContext';
+import {useNavigate} from 'react-router-dom';
 import GameRulesText from './GameRulesText';
+import GameOptions from './GameOptions';
 
 const GameStarted = () => {
 	const name = sessionStorage.getItem('name');
-
+	const navigate = useNavigate();
 	useEffect(() => {
-		console.log(name);
+		if (name === null) 
+			navigate('/');
 	}, []);
 
-	if (name === null) {
-		return (
-			<h1 className='display-1'>Go Fuck Yourself</h1>
-		);
-	}
-	else {
-		return (
+	return (
+		<div>
 			<GameRulesText/>
-
-		);		
-	}
+			<GameOptions/>
+		</div>
+	);
 }
 
 export default GameStarted;
