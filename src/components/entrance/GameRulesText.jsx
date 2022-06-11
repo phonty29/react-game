@@ -1,32 +1,43 @@
-import React, {useRef, useEffect} from 'react';
-import Typed from 'typed.js'
+import React, {useState, useRef, useEffect} from 'react';
 import {gameRulesText} from '../../database/data';
+import RulesTextButtons from './RulesTextButtons';
+import {RulesTextContext} from '../../context/RulesTextContext';
+import Typed from 'typed.js'
 
 const GameRulesText = () => {
+  const [textOption, setTextOption] = useState('dynamic');
 	const el = useRef(null);
 	const typed = useRef(null);
 
   useEffect(() => {
-    const options = {
-      strings: [gameRulesText],
-      typeSpeed: 0,
-    };
-    
-    typed.current = new Typed(el.current, options);
-    
-    return () => {
-      typed.current.destroy();
+    if (textOption == 'dynamic') {
+       const options = {
+         strings: [gameRulesText],
+         typeSpeed: 0,
+         backSpeed: 0
+       };
+          
+       typed.current = new Typed(el.current, options);
+          
+       return () => {
+         typed.current.destroy();
+       }      
     }
-  }, []);
+  }, [textOption]);
 
   return (
-  	<div>
-	    <div style={{height: '300px'}}>
-	        <span ref={el} />
-	    </div>
-	    <button type="button" className="btn btn-dark" onClick={() => typed.current.start()}>Start</button>
-	    <button type="button" className="btn btn-dark mx-3" onClick={() => typed.current.stop()}>Stop</button>
-    </div>
+    <RulesTextContext.Provider value={{textOption, setTextOption}}>
+      <div style={{height: '300px'}}>
+        {
+          (textOption == 'dynamic') 
+            ?
+          <span ref={el}/>
+            :
+          <p>{gameRulesText}</p>
+        }
+      </div>
+      <RulesTextButtons typed={typed}/>
+    </RulesTextContext.Provider>      
   );
 }
 

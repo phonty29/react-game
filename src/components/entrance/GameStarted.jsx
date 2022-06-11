@@ -7,7 +7,7 @@ const GameStarted = () => {
 
 	useEffect(() => {
 		console.log(name);
-	}, [])
+	}, []);
 
 	if (name === null) {
 		return (
