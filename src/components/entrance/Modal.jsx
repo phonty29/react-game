@@ -10,10 +10,10 @@ const Modal = () => {
 
 	useEffect(() => {
 		setName('');
-		sessionStorage.removeItem('name');
+		sessionStorage.clear();
 	}, []);
 
-	const submitEventHandler = (inputName) => {
+	const submitName = (inputName) => {
 		let inputSucceed = checkInput(inputName);
 		if (inputSucceed) {
 			sessionStorage.setItem('name', name);
@@ -24,7 +24,7 @@ const Modal = () => {
 	return (
 		<div>
 			<ModalDisplay/>
-			<button className="btn btn-dark mt-2" onClick={() => {submitEventHandler(name)}}>Submit</button>
+			<button className="btn btn-dark mt-2" onClick={() => {submitName(name)}}>Submit</button>
 		</div>
 	);
 }
