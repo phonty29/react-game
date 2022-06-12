@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {gameRulesText} from '../../database/data';
+import {gameRulesText} from '../../utils/data';
 import RulesTextButtons from './RulesTextButtons';
 import {RulesTextContext} from '../../context/RulesTextContext';
 import Typed from 'typed.js'

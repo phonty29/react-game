@@ -6,7 +6,7 @@ const Start = ({multiplay, playerAmount}) => {
 	const startGame = () => {
 		sessionStorage.setItem('playerAmount', playerAmount);
 		sessionStorage.setItem('multiplay', multiplay);
-		navigate(multiplay ? '/gameOnline' : 'gameOffline');
+		navigate(multiplay ? '/gameOnline' : '/gameOffline');
 	};
 
 	return (

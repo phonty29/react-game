@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {players} from '../../database/data';
+import {isInStorage} from '../../utils/utilFunctions';
+import {players} from '../../utils/data';
 import Start from './Start';
 
 const GameOptions = () => {
@@ -7,7 +8,7 @@ const GameOptions = () => {
 	const [multiplay, setMultiplay] = useState(false);
 
 	useEffect(() => {
-		if (sessionStorage.getItem('playerAmount') || sessionStorage.getItem('multiplay')) {
+		if (isInStorage('playerAmount') || isInStorage('multiplay')) {
 			sessionStorage.removeItem('playerAmount');
 			sessionStorage.removeItem('multiplay');
 			setPlayerAmount(12);

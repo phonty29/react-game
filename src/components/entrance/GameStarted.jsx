@@ -1,13 +1,13 @@
 import React, {useContext, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {isNotInStorage} from '../../utils/utilFunctions';
 import GameRulesText from './GameRulesText';
 import GameOptions from './GameOptions';
 
 const GameStarted = () => {
-	const name = sessionStorage.getItem('name');
 	const navigate = useNavigate();
 	useEffect(() => {
-		if (name === null) 
+		if (isNotInStorage('name')) 
 			navigate('/');
 	}, []);
 

@@ -1,11 +1,11 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
 import {NameContext} from '../../context/NameContext';
-import {checkInput} from '../../database/data';
+import {checkInput} from '../../utils/data';
 
 const Modal = () => {
-	const {name, setName} = useContext(NameContext);
+  	const [name, setName] = useState('');
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -14,18 +14,17 @@ const Modal = () => {
 	}, []);
 
 	const submitName = (inputName) => {
-		let inputSucceed = checkInput(inputName);
-		if (inputSucceed) {
+		if (checkInput(inputName)) {
 			sessionStorage.setItem('name', name);
 			navigate('/gameStarted');
 		} 
 	};		
 
 	return (
-		<div>
+		<NameContext.Provider value={{name, setName}}>
 			<ModalDisplay/>
 			<button className="btn btn-dark mt-2" onClick={() => {submitName(name)}}>Submit</button>
-		</div>
+		</NameContext.Provider>
 	);
 }
 

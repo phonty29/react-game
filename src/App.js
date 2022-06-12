@@ -1,14 +1,12 @@
 import React from 'react';
-import Game from './components/entrance/Game';
+import GameRouter from './components/GameRouter';
 import {GameContext} from './context/GameContext';
-import './bootstrap/css/bootstrap.css';
 
 const App = () => {
-  
   return (
     <GameContext.Provider value={{}}>
       <div className="container">
-        <Game/>
+        <GameRouter/>
       </div>
     </GameContext.Provider>
   );
