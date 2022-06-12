@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {isInStorage} from '../../utils/utilFunctions';
+import {isInStorage} from '../../utils/storage';
 import {players} from '../../utils/data';
 import Start from './Start';
 

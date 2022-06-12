@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
 import {NameContext} from '../../context/NameContext';
-import {checkInput} from '../../utils/data';
+import {checkInput} from '../../utils/storage';
 
 const Modal = () => {
   	const [name, setName] = useState('');

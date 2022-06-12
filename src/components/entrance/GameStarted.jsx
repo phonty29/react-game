@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {isNotInStorage} from '../../utils/utilFunctions';
+import {isNotInStorage} from '../../utils/storage';
 import GameRulesText from './GameRulesText';
 import GameOptions from './GameOptions';
 

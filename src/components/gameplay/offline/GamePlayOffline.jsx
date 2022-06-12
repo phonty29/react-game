@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {isNotInStorage, getFromStorage} from '../../../utils/utilFunctions';
+import {isNotInStorage, getFromStorage} from '../../../utils/storage';
 
 const GamePlayOffline = () => {
 	const navigate = useNavigate();
