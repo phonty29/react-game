@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import ModalDisplay from './ModalDisplay';
 import {NameContext} from '../../context/NameContext';
 import {checkInput} from '../../utils/storage';
+import {CHARACTERS} from '../../utils/data';
 
 const Modal = () => {
   	const [name, setName] = useState('');
@@ -16,6 +17,7 @@ const Modal = () => {
 	const submitName = (inputName) => {
 		if (checkInput(inputName)) {
 			sessionStorage.setItem('name', name);
+			CHARACTERS.splice(CHARACTERS.indexOf(name.trim().toLowerCase()), 1); 			
 			navigate('/gameStarted');
 		} 
 	};		

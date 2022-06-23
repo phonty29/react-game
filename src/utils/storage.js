@@ -1,8 +1,8 @@
-import {players} from './data';
+import {CHARACTERS} from './data';
 
 export const checkInput = (inputName) => {
-	for (let i = 0; i < players.length; i++) 
-		if (players[i] == inputName.trim().toLowerCase()) 
+	for (let i = 0; i < CHARACTERS.length; i++) 
+		if (CHARACTERS[i] == inputName.trim().toLowerCase()) 
 			return true;
 	return false;
 };

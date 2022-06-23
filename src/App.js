@@ -5,7 +5,7 @@ import {GameContext} from './context/GameContext';
 const App = () => {
   return (
     <GameContext.Provider value={{}}>
-      <div className="container">
+      <div className="container mt-5">
         <GameRouter/>
       </div>
     </GameContext.Provider>
