@@ -4,7 +4,7 @@ import {GameplayContext} from '../../../context/GameplayContext';
 const HintText = () => {
 	const {hintText, setHintText} = useContext(GameplayContext);
 	return (
-		<div className="h3">
+		<div className="h2">
 			{hintText}
 		</div>
 	);

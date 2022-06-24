@@ -14,18 +14,17 @@ const Modal = () => {
 		sessionStorage.clear();
 	}, []);
 
-	const submitName = (inputName) => {
-		if (checkInput(inputName)) {
-			sessionStorage.setItem('name', name);
-			CHARACTERS.splice(CHARACTERS.indexOf(name.trim().toLowerCase()), 1); 			
-			navigate('/gameStarted');
-		} 
+	const submitName = () => {
+		sessionStorage.setItem('name', name);
+		if (checkInput(name)) 
+			CHARACTERS.splice(CHARACTERS.indexOf(name.trim().toLowerCase()), 1);
+		navigate('/gameStarted');
 	};		
 
 	return (
 		<NameContext.Provider value={{name, setName}}>
 			<ModalDisplay/>
-			<button className="btn btn-dark mt-2" onClick={() => {submitName(name)}}>Submit</button>
+			<button className="btn btn-dark mt-2" onClick={() => {submitName}}>Submit</button>
 		</NameContext.Provider>
 	);
 }
