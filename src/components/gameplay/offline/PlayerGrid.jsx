@@ -10,7 +10,7 @@ const PlayerGrid = ({playersForDisplay}) => {
 		if (buttonSwitch == '') {
 			setPlayerState({players: playersForDisplay, className: 'col', cardClassName: 'card mb-4 rounded-3 shadow-sm'});
 			setHintText("There are players");
-			timeout(gameplayState.selectedPlayers.length*1500).then(() => {
+			timeout(gameplayState.selectedPlayers.length*1000).then(() => {
 				setPlayerState({
 					...playerState,
 					players: displayOrderOfEntrance(gameplayState.selectedPlayers),
@@ -32,7 +32,7 @@ const PlayerGrid = ({playersForDisplay}) => {
 	}, [buttonSwitch]);
 
 	return (
-	    	<div className="d-flex flex-wrap" id="box">  
+	    	<div className="d-flex flex-wrap mt-3" id="box">  
 	    		{
 		    		playerState.players.map((player, index, arr) =>
 		    			<Player key={index} player={player} playerState={playerState} style={{animationDelay:`${index*3}s`}}/>

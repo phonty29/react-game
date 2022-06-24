@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {GameplayContext} from '../../../context/GameplayContext';
 
 const EvidenceText = ({reply}) => {
+	const {buttonSwitch} = useContext(GameplayContext);
 	return <p className="testimony" style={{textAlign: 'center', fontWeight: 'bold'}}>
-				{reply == '1' && "Yes"}
-				{reply == '0' && "No"}
-				{reply == '?' && "I don't know"}
+				{reply == '1' && buttonSwitch == 'submit' && "Yes"}
+				{reply == '0' && buttonSwitch == 'submit' && "No"}
+				{reply == '?' && buttonSwitch == 'submit' && "I don't know"}
 		   </p>;
 }
 

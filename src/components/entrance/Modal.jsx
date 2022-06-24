@@ -24,7 +24,7 @@ const Modal = () => {
 	return (
 		<NameContext.Provider value={{name, setName}}>
 			<ModalDisplay/>
-			<button className="btn btn-dark mt-2" onClick={() => {submitName}}>Submit</button>
+			<button className="btn btn-dark mt-2" onClick={submitName}>Submit</button>
 		</NameContext.Provider>
 	);
 }

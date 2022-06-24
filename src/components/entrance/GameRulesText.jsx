@@ -27,7 +27,7 @@ const GameRulesText = () => {
 
   return (
     <RulesTextContext.Provider value={{textOption, setTextOption}}>
-      <div style={{height: '300px'}}>
+      <div style={{height: '100px'}}>
         {
           (textOption == 'dynamic') 
             ?
